@@ -1,0 +1,26 @@
+﻿@using SportGroundUI.Models;
+@model VisitorParameters;
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>
+        Create employee
+    </h2>
+    <form method="post" action="CreateVisitor">
+        <label> Input create options</label> <br />
+        <label> Input first name</label>
+        @Html.EditorFor(m => m.FirstName)<br />
+        <label> Input second name</label>
+        @Html.EditorFor(m => m.SecondName)<br />
+        <label> Input phone number</label>
+        @Html.EditorFor(m => m.PhoneNumber)<br />
+        <label> Input age</label>
+        @Html.EditorFor(m => m.Age)<br />
+        <label> Input gender</label>
+        @Html.EditorFor(m => m.Sex)<br />
+        <input type="submit" value="Add visitor" />
+    </form>
+</body>
+</html>

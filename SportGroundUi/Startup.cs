@@ -32,6 +32,7 @@ namespace SportGroundUi
             services.AddDbContext<Sport_ground_DBContext>();
             services.AddScoped<Sport_ground_DBContext, Sport_ground_DBContext>();
             services.AddTransient<GetVisitorInfoService, GetVisitorInfoService>();
+            services.AddTransient<CreateVisitorService, CreateVisitorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
