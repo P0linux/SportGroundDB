@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<string>;
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <h2> Get coaches information</h2>
+    <form method="post">
+        <label>Input coach first name</label><br />
+        <input type="text" name="firstName" /><br /><br />
+        <label>Input coach second name</label><br />
+        <input type="text" name="secondName" /><br /><br />
+        <select name="option">
+            <option value="General">Get general info</option>
+            <option value="Ind">Get coach individual trainings</option>
+            <option value="Team">Get coach team trainings</option>
+        </select>
+        <input type="submit" value="Find" />
+    </form>
+    @foreach (string s in Model)
+    {
+        <label>@s</label><br />
+    }
+</body>
+</html>
