@@ -24,13 +24,13 @@ namespace SportGroundUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetVisitors()
+        public ActionResult GetVisitorInfo()
         {
-            return View("GetVisitors", new List<string>());
+            return View("GetVisitorInfo", new List<string>());
         }
 
         [HttpPost]
-        public ActionResult GetVisitors(string firstName, string secondName, string option)
+        public ActionResult GetVisitorInfo(string firstName, string secondName, string option)
         {
             List<string> info = GetByOption(firstName, secondName, option);
             return View("GetVisitors", info);
