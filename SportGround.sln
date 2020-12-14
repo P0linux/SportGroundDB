@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportGround", "SportGround\SportGround.csproj", "{35E1D91B-3E9C-4E68-B635-DFE9E6978918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGroundUI", "SportGroundUi\SportGroundUI.csproj", "{3317B2D7-9BA8-4E91-ACE8-2B7DF2CA2638}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportGroundUI", "SportGroundUi\SportGroundUI.csproj", "{3317B2D7-9BA8-4E91-ACE8-2B7DF2CA2638}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

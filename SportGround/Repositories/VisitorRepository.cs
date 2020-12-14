@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SportGround.Repositories
 {
-    class VisitorRepository : IRepository<Visitor>
+    public class VisitorRepository : IRepository<Visitor>
     {
         DbSet<Visitor> visitors;
 

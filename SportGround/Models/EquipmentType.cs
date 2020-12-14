@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportGround.Models
 {
-    public partial class EquipmentType
+    public partial class EquipmentType: IBaseModel
     {
         public int Id { get; set; }
         public int? SportTypeId { get; set; }

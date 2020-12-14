@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportGround.Models
 {
-    public partial class IndividualTraining
+    public partial class IndividualTraining: IBaseModel
     {
         public int Id { get; set; }
         public DateTime? TrainingDateTime { get; set; }

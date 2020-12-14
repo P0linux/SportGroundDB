@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+        ViewData["Title"] = "Visitor start window";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>
+        Visitor main window
+    </h2>
+    <p>Choose your option</p>
+    <ul>
+        <li>
+            @Html.ActionLink("Find Employee", "FindEmployee", "FindEmployee");
+        </li>
+        <li>
+            @Html.ActionLink("Create Employee", "CreateEmployee", "Create");
+        </li>
+        <li>
+            @Html.ActionLink("Find Department", "FindDepartment", "FindDepartment");
+        </li>
+        <li>
+            @Html.ActionLink("Create Department", "CreateDepartment", "Create");
+        </li>
+        <li>
+            @Html.ActionLink("Create Problem", "CreateProblem", "Create");
+        </li>
+    </ul>
+</body>
+</html>

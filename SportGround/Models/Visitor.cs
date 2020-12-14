@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportGround.Models
 {
-    public partial class Visitor
+    public partial class Visitor: IBaseModel
     {
         public Visitor()
         {

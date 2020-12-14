@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportGround.Models
 {
-    public partial class CompParticipant
+    public partial class CompParticipant: IBaseModel
     {
         public int Id { get; set; }
         public decimal? Result { get; set; }

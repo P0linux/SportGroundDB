@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SportGround.Models
 {
-    public partial class SectionVisitor
+    public partial class SectionVisitor: IBaseModel
     {
         public int Id { get; set; }
         public int? SportSectionId { get; set; }

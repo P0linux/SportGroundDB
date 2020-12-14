@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SportGround;
+using SportGround.Models;
+using SportGround.Repositories;
+using SportGround.Services;
 
 namespace SportGroundUi
 {
@@ -24,6 +28,10 @@ namespace SportGroundUi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<Sport_ground_DBContext>();
+            services.AddScoped<Sport_ground_DBContext, Sport_ground_DBContext>();
+            services.AddTransient<GetVisitorInfoService, GetVisitorInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
