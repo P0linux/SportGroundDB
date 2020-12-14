@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SportGround.Services
 {
-    class CreateCoachService
+    public class CreateCoachService
     {
         Sport_ground_DBContext context;
         public CreateCoachService(Sport_ground_DBContext context)

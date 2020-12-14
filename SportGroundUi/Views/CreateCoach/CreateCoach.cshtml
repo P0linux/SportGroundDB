@@ -1,0 +1,32 @@
+﻿@using SportGroundUI.Models;
+@model CoachParameters;
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>
+        Create coach
+    </h2>
+    <form method="post" action="CreateCoach">
+        <label> Input create options</label> <br />
+        <label> Input first name</label>
+        @Html.EditorFor(m => m.FirstName)<br />
+        <label> Input second name</label>
+        @Html.EditorFor(m => m.SecondName)<br />
+        <label> Input age</label>
+        @Html.EditorFor(m => m.Age)<br />
+        <label> Input gender</label>
+        @Html.EditorFor(m => m.Sex)<br />
+        <label> Input phone number</label>
+        @Html.EditorFor(m => m.PhoneNumber)<br />
+        <label> Input salary</label>
+        @Html.EditorFor(m => m.Salary)<br />
+        <label> Input experience</label>
+        @Html.EditorFor(m => m.Experience)<br />
+        <label> Input section name</label>
+        @Html.EditorFor(m => m.SectionName)<br />
+        <input type="submit" value="Add coach" />
+    </form>
+</body>
+</html>
