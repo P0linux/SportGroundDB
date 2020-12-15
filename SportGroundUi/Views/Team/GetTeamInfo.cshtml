@@ -1,0 +1,28 @@
+﻿@using SportGround.Models;
+@{
+    @model List<string>;
+    ViewData["Title"] = "Teams";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <h2> Get teams information</h2>
+    <form method="post">
+        <label>Input team name</label><br />
+        <input type="text" name="name" /><br /><br />
+        <select name="option">
+            <option value="General">Get general info</option>
+            <option value="Coach">Get team coaches</option>
+            <option value="Player">Get team players</option>
+        </select>
+        <input type="submit" value="Get information" />
+    </form>
+    @foreach (string s in Model)
+    {
+        <label>@s</label><br />
+    }
+</body>
+</html>

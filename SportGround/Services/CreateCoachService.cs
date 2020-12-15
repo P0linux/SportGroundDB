@@ -19,7 +19,14 @@ namespace SportGround.Services
             var section = context.SportSections.Where(s => s.Name == sectionName).FirstOrDefault();
             coach.SportSectionId = section.Id;
             context.Coaches.Add(coach);
+            UpdateSection(section);
             context.SaveChanges();
+        }
+
+        public void UpdateSection(SportSection section)
+        {
+            section.CoachesNumber++;
+            context.SportSections.Update(section);
         }
     }
 }

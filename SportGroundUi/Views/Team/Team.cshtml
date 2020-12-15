@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Team start window";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>
+        Team main window
+    </h2>
+    <p>Choose your option</p>
+    <ul>
+        <li>
+            @Html.ActionLink("Get sport team information", "GetTeamInfo", "Team");
+        </li>
+        <li>
+            @Html.ActionLink("Add team", "CreateTeam", "CreateTeam");
+        </li>
+    </ul>
+</body>
+</html>

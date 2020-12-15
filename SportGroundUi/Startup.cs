@@ -35,6 +35,7 @@ namespace SportGroundUi
             services.AddTransient<CreateVisitorService, CreateVisitorService>();
             services.AddTransient<GetCoachInfoService, GetCoachInfoService>();
             services.AddTransient<CreateCoachService, CreateCoachService>();
+            services.AddTransient<GetTeamInfoService, GetTeamInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -33,7 +33,7 @@ namespace SportGroundUI.Controllers
         public ActionResult GetVisitorInfo(string firstName, string secondName, string option)
         {
             List<string> info = GetByOption(firstName, secondName, option);
-            return View("GetVisitors", info);
+            return View("GetVisitorInfo", info);
         }
 
         private List<string> GetByOption(string firstName, string secondName, string option)

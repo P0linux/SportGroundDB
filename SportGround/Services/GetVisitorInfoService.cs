@@ -60,7 +60,11 @@ namespace SportGround.Services
 
         public List<string> GetVisitorCoaches(string firstName, string secondName)
         {
-            var visitor = context.Visitors.Where(v => v.FirstName == firstName && v.SecondName == secondName).FirstOrDefault();
+            var visitor = context.Visitors
+                                 .Include(v => v.IndividualTrainings)
+                                 .ThenInclude(v => v.Coach)
+                                 .Where(v => v.FirstName == firstName && v.SecondName == secondName)
+                                 .FirstOrDefault();
             var coaches = visitor.IndividualTrainings.Select(t => t.Coach);
             List<string> coachesInfo = new List<string>();
             foreach (Coach c in coaches)
