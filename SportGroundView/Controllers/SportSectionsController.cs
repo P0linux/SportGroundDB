@@ -9,18 +9,19 @@ using SportGroundView.Models;
 
 namespace SportGroundView.Controllers
 {
-    public class EquipmentsController : Controller
+    public class SportSectionsController : Controller
     {
         private readonly Sport_ground_DBContext _context;
 
-        public EquipmentsController(Sport_ground_DBContext context)
+        public SportSectionsController(Sport_ground_DBContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Equipment.ToListAsync());
+            var sport_ground_DBContext = _context.SportSections.Include(s => s.SportType);
+            return View(await sport_ground_DBContext.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -30,33 +31,36 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var sportSection = await _context.SportSections
+                .Include(s => s.SportType)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (sportSection == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(sportSection);
         }
 
         public IActionResult Create()
         {
+            ViewData["SportTypeId"] = new SelectList(_context.SportTypes, "Id", "Name");
             return View();
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Create([Bind("Id,Name,VisitorsNumber,CoachesNumber,VisitorsMaxNumber,DateOfCreation,SportTypeId")] SportSection sportSection)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(equipment);
+                _context.Add(sportSection);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            ViewData["SportTypeId"] = new SelectList(_context.SportTypes, "Id", "Name", sportSection.SportTypeId);
+            return View(sportSection);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -66,19 +70,21 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment.FindAsync(id);
-            if (equipment == null)
+            var sportSection = await _context.SportSections.FindAsync(id);
+            if (sportSection == null)
             {
                 return NotFound();
             }
-            return View(equipment);
+            ViewData["SportTypeId"] = new SelectList(_context.SportTypes, "Id", "Name", sportSection.SportTypeId);
+            return View(sportSection);
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,VisitorsNumber,CoachesNumber,VisitorsMaxNumber,DateOfCreation,SportTypeId")] SportSection sportSection)
         {
-            if (id != equipment.Id)
+            if (id != sportSection.Id)
             {
                 return NotFound();
             }
@@ -87,12 +93,12 @@ namespace SportGroundView.Controllers
             {
                 try
                 {
-                    _context.Update(equipment);
+                    _context.Update(sportSection);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EquipmentExists(equipment.Id))
+                    if (!SportSectionExists(sportSection.Id))
                     {
                         return NotFound();
                     }
@@ -103,7 +109,8 @@ namespace SportGroundView.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            ViewData["SportTypeId"] = new SelectList(_context.SportTypes, "Id", "Name", sportSection.SportTypeId);
+            return View(sportSection);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -113,29 +120,30 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var sportSection = await _context.SportSections
+                .Include(s => s.SportType)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (sportSection == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(sportSection);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var equipment = await _context.Equipment.FindAsync(id);
-            _context.Equipment.Remove(equipment);
+            var sportSection = await _context.SportSections.FindAsync(id);
+            _context.SportSections.Remove(sportSection);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EquipmentExists(int id)
+        private bool SportSectionExists(int id)
         {
-            return _context.Equipment.Any(e => e.Id == id);
+            return _context.SportSections.Any(e => e.Id == id);
         }
     }
 }

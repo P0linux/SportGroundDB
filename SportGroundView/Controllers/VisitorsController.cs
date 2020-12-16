@@ -9,18 +9,18 @@ using SportGroundView.Models;
 
 namespace SportGroundView.Controllers
 {
-    public class EquipmentsController : Controller
+    public class VisitorsController : Controller
     {
         private readonly Sport_ground_DBContext _context;
 
-        public EquipmentsController(Sport_ground_DBContext context)
+        public VisitorsController(Sport_ground_DBContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Equipment.ToListAsync());
+            return View(await _context.Visitors.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -30,14 +30,14 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var visitor = await _context.Visitors
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (visitor == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(visitor);
         }
 
         public IActionResult Create()
@@ -45,18 +45,18 @@ namespace SportGroundView.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,SecondName,PhoneNumber,Age,Sex")] Visitor visitor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(equipment);
+                _context.Add(visitor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            return View(visitor);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -66,19 +66,20 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment.FindAsync(id);
-            if (equipment == null)
+            var visitor = await _context.Visitors.FindAsync(id);
+            if (visitor == null)
             {
                 return NotFound();
             }
-            return View(equipment);
+            return View(visitor);
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,SecondName,PhoneNumber,Age,Sex")] Visitor visitor)
         {
-            if (id != equipment.Id)
+            if (id != visitor.Id)
             {
                 return NotFound();
             }
@@ -87,12 +88,12 @@ namespace SportGroundView.Controllers
             {
                 try
                 {
-                    _context.Update(equipment);
+                    _context.Update(visitor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EquipmentExists(equipment.Id))
+                    if (!VisitorExists(visitor.Id))
                     {
                         return NotFound();
                     }
@@ -103,7 +104,7 @@ namespace SportGroundView.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            return View(visitor);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -113,29 +114,29 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var visitor = await _context.Visitors
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (visitor == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(visitor);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var equipment = await _context.Equipment.FindAsync(id);
-            _context.Equipment.Remove(equipment);
+            var visitor = await _context.Visitors.FindAsync(id);
+            _context.Visitors.Remove(visitor);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EquipmentExists(int id)
+        private bool VisitorExists(int id)
         {
-            return _context.Equipment.Any(e => e.Id == id);
+            return _context.Visitors.Any(e => e.Id == id);
         }
     }
 }

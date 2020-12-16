@@ -1,10 +1,10 @@
-﻿@model IEnumerable<SportGroundView.Models.Equipment>
+﻿@model IEnumerable<SportGroundView.Models.Competition>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Equipments page</h1>
+<h1>Competitions page</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,19 +16,22 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfPurchase)
+                @Html.DisplayNameFor(model => model.Reward)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfUnits)
+                @Html.DisplayNameFor(model => model.CompetitionDateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PriceOfUnit)
+                @Html.DisplayNameFor(model => model.ParticipantsMaxNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GenralPrice)
+                @Html.DisplayNameFor(model => model.ParticipantsNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayNameFor(model => model.CompetitionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportType)
             </th>
             <th></th>
         </tr>
@@ -40,19 +43,22 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfPurchase)
+                @Html.DisplayFor(modelItem => item.Reward)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfUnits)
+                @Html.DisplayFor(modelItem => item.CompetitionDateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PriceOfUnit)
+                @Html.DisplayFor(modelItem => item.ParticipantsMaxNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenralPrice)
+                @Html.DisplayFor(modelItem => item.ParticipantsNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.CompetitionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SportType.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

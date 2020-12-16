@@ -9,18 +9,18 @@ using SportGroundView.Models;
 
 namespace SportGroundView.Controllers
 {
-    public class EquipmentsController : Controller
+    public class SportTypesController : Controller
     {
         private readonly Sport_ground_DBContext _context;
 
-        public EquipmentsController(Sport_ground_DBContext context)
+        public SportTypesController(Sport_ground_DBContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Equipment.ToListAsync());
+            return View(await _context.SportTypes.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -30,14 +30,14 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var sportType = await _context.SportTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (sportType == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(sportType);
         }
 
         public IActionResult Create()
@@ -48,15 +48,15 @@ namespace SportGroundView.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Create([Bind("Id,Name,IsTeamplay")] SportType sportType)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(equipment);
+                _context.Add(sportType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            return View(sportType);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -66,19 +66,20 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment.FindAsync(id);
-            if (equipment == null)
+            var sportType = await _context.SportTypes.FindAsync(id);
+            if (sportType == null)
             {
                 return NotFound();
             }
-            return View(equipment);
+            return View(sportType);
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DateOfPurchase,NumberOfUnits,PriceOfUnit,GenralPrice,Type")] Equipment equipment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IsTeamplay")] SportType sportType)
         {
-            if (id != equipment.Id)
+            if (id != sportType.Id)
             {
                 return NotFound();
             }
@@ -87,12 +88,12 @@ namespace SportGroundView.Controllers
             {
                 try
                 {
-                    _context.Update(equipment);
+                    _context.Update(sportType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EquipmentExists(equipment.Id))
+                    if (!SportTypeExists(sportType.Id))
                     {
                         return NotFound();
                     }
@@ -103,7 +104,7 @@ namespace SportGroundView.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(equipment);
+            return View(sportType);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -113,29 +114,29 @@ namespace SportGroundView.Controllers
                 return NotFound();
             }
 
-            var equipment = await _context.Equipment
+            var sportType = await _context.SportTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (equipment == null)
+            if (sportType == null)
             {
                 return NotFound();
             }
 
-            return View(equipment);
+            return View(sportType);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var equipment = await _context.Equipment.FindAsync(id);
-            _context.Equipment.Remove(equipment);
+            var sportType = await _context.SportTypes.FindAsync(id);
+            _context.SportTypes.Remove(sportType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EquipmentExists(int id)
+        private bool SportTypeExists(int id)
         {
-            return _context.Equipment.Any(e => e.Id == id);
+            return _context.SportTypes.Any(e => e.Id == id);
         }
     }
 }

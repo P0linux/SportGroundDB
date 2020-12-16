@@ -1,10 +1,10 @@
-﻿@model IEnumerable<SportGroundView.Models.Equipment>
+﻿@model IEnumerable<SportGroundView.Models.SportSection>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Equipments page</h1>
+<h1>Sport sections page</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,19 +16,19 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfPurchase)
+                @Html.DisplayNameFor(model => model.VisitorsNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfUnits)
+                @Html.DisplayNameFor(model => model.CoachesNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PriceOfUnit)
+                @Html.DisplayNameFor(model => model.VisitorsMaxNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GenralPrice)
+                @Html.DisplayNameFor(model => model.DateOfCreation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayNameFor(model => model.SportType)
             </th>
             <th></th>
         </tr>
@@ -40,19 +40,19 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfPurchase)
+                @Html.DisplayFor(modelItem => item.VisitorsNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfUnits)
+                @Html.DisplayFor(modelItem => item.CoachesNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PriceOfUnit)
+                @Html.DisplayFor(modelItem => item.VisitorsMaxNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenralPrice)
+                @Html.DisplayFor(modelItem => item.DateOfCreation)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.SportType.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

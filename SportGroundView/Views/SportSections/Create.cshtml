@@ -1,0 +1,54 @@
+﻿@model SportGroundView.Models.SportSection
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SportSection</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitorsNumber" class="control-label"></label>
+                <input asp-for="VisitorsNumber" class="form-control" />
+                <span asp-validation-for="VisitorsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoachesNumber" class="control-label"></label>
+                <input asp-for="CoachesNumber" class="form-control" />
+                <span asp-validation-for="CoachesNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitorsMaxNumber" class="control-label"></label>
+                <input asp-for="VisitorsMaxNumber" class="form-control" />
+                <span asp-validation-for="VisitorsMaxNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfCreation" class="control-label"></label>
+                <input asp-for="DateOfCreation" class="form-control" />
+                <span asp-validation-for="DateOfCreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SportTypeId" class="control-label"></label>
+                <select asp-for="SportTypeId" class ="form-control" asp-items="ViewBag.SportTypeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
