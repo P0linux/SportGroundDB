@@ -19,6 +19,7 @@ namespace SportGround.Services
         {
             var coaches = context.Coaches.Include(c => c.SportSection)
                                          .Where(c => c.FirstName == firstName && c.SecondName == secondName);
+            
             List<string> coachesInfo = new List<string>();
             foreach (Coach c in coaches)
             {

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SportGround.Models.Coach" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAGgAAAAABAAAAEAAQAAAAAAAAgQAAAAAAAAAQAQ=</HashCode>
+      <FileName>Models\Coach.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportSection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.Competition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAigAgBBAAAAAAAAAAAQIQAAAAAAAAAAAAAQAAAAQA=</HashCode>
+      <FileName>Models\Competition.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.CompParticipant" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACEAEgAAAAAAAACAAAIAQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CompParticipant.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Visitor" />
+      <Property Name="Competition" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.CompTeamParticipant" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAgAAAAAAAAAAAAIAQAAICAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\CompTeamParticipant.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Competition" />
+      <Property Name="SportTeam" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.Equipment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAACAAAAQwAAAAAAAAACQAAAAAAAgA=</HashCode>
+      <FileName>Models\Equipment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.EquipmentType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgABAAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EquipmentType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportType" />
+      <Property Name="Equipment" />
+    </ShowAsAssociation>
+    <Lollipop Position="1.093" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.IndividualTraining" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAEIAAAAACAACAAAAAAIAgAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\IndividualTraining.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coach" />
+      <Property Name="Visitor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.SectionVisitor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAACAAAAAAAAAAAAgQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SectionVisitor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportSection" />
+      <Property Name="Visitor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.Sport_ground_DBContext">
+    <Position X="17.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAgABAAAQARAAAgCgAGQAQAEACAAAAAEAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Sport_ground_DBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SportGround.Models.SportSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgABAABCAAAAAAEAQQAAAAAAAAQEAAAAACAAAA=</HashCode>
+      <FileName>Models\SportSection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.SportTeam" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAiAAAAAAAAAAAAAAACAQQAAAAAAgQAAAAAEAAAAAQ=</HashCode>
+      <FileName>Models\SportTeam.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.SportType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAIAAAAACAAAAAQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SportType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.TeamPlayer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAEAAAAAAEAACAAAAAAAAIAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\TeamPlayer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SportTeam" />
+      <Property Name="Visitor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.TeamTraining" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAIAAAAACAAAAAAAAAIAoAAAAAAEAAAAAAAAQA=</HashCode>
+      <FileName>Models\TeamTraining.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coach" />
+      <Property Name="SportTeam" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Models.Visitor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAEgAAAAABAAAAEACQAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Visitor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SportGround.Services.CreateCoachService">
+    <Position X="21.25" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CreateCoachService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SportGround.Services.CreateTeamService">
+    <Position X="19.75" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Services\CreateTeamService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SportGround.Services.CreateVisitorService">
+    <Position X="17.25" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CreateVisitorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SportGround.Services.GetCoachInfoService">
+    <Position X="10.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <FileName>Services\GetCoachInfoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SportGround.Services.GetTeamInfoService">
+    <Position X="12.75" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAACAAIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\GetTeamInfoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SportGround.Services.GetVisitorInfoService">
+    <Position X="15.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAACAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Services\GetVisitorInfoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

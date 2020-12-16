@@ -1,0 +1,26 @@
+﻿@using SportGroundUI.Models;
+@model TeamParameters;
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>
+        Create team
+    </h2>
+    <form method="post" action="CreateTeam">
+        <label> Input create options</label> <br />
+        <label> Input name</label>
+        @Html.EditorFor(m => m.Name)<br />
+        <label> Input players number</label>
+        @Html.EditorFor(m => m.PlayersNumber)<br />
+        <label> Input rewards number</label>
+        @Html.EditorFor(m => m.RewardNumber)<br />
+        <label> Input date of creation</label>
+        @Html.EditorFor(m => m.DateOfCreation)<br />
+        <label> Input team sport section</label>
+        @Html.EditorFor(m => m.SectionName)<br />
+        <input type="submit" value="Add team" />
+    </form>
+</body>
+</html>

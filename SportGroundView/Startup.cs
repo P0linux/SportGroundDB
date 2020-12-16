@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SportGroundView.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SportGround;
-using SportGround.Models;
-using SportGround.Repositories;
-using SportGround.Services;
 
-namespace SportGroundUi
+namespace SportGroundView
 {
     public class Startup
     {
@@ -27,16 +24,10 @@ namespace SportGroundUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<Sport_ground_DBContext>(options =>
+                options.UseSqlServer(connection));
             services.AddControllersWithViews();
-
-            services.AddDbContext<Sport_ground_DBContext>();
-            services.AddScoped<Sport_ground_DBContext, Sport_ground_DBContext>();
-            services.AddTransient<GetVisitorInfoService, GetVisitorInfoService>();
-            services.AddTransient<CreateVisitorService, CreateVisitorService>();
-            services.AddTransient<GetCoachInfoService, GetCoachInfoService>();
-            services.AddTransient<CreateCoachService, CreateCoachService>();
-            services.AddTransient<GetTeamInfoService, GetTeamInfoService>();
-            services.AddTransient<CreateTeamService, CreateTeamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,10 +40,7 @@ namespace SportGroundUi
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
